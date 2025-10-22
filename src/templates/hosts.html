@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Hosts</title>
+</head>
+<body>
+    <header>
+        <h2>SNSM Server</h2>
+        <ul>
+            <a href="#"><img id="logo_site" src="{{ url_for('static', filename='images/github.png') }}" alt=""></a>
+        </ul>
+    </header>
+    <nav>
+        <a href="#">Hosts</a>
+        <a href="#">Comandos</a>
+        <a href="#">Tutorial</a>
+        <a href="#">Sair software</a>
+    </nav>
+    <main>
+
+        <form action="" method="get">
+
+            <input id="txt_pesquisa" type="text" placeholder="Nome do host">
+            <input id="btn_pesquisar" type="submit" value="Pesquisar">
+
+        </form>
+
+        {% for host in data %}
+
+            <div class="card_host">
+                <div class="card_software">
+                    <p>ID: {{host.id}}</p>
+                    <p>HOST: {{host.host_name}}</p>
+                    <p>SISTEMA: {{host.system_name}}</p>
+                    <p>ARQUITETURA: {{host.system_description}}</p>
+                </div>
+
+                <div class="card_hardware">
+                    <p>P.NUCLEOS: {{host.total_of_cores}}</p>
+                    <p>P.THREADS: {{host.total_of_threads}}</p>
+                    <p>RAM: {{host.total_of_memory}}</p>
+                    <a href="#">VER MAIS</a>
+                </div>
+            </div>
+            
+        {% endfor %}
+
+    </main>
+
+
+    
+</body>
+</html>
