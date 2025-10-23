@@ -68,3 +68,18 @@ def insert_log(data: dict):
     conn.commit()
     cursor.close()
     conn.close()
+
+# Metodo responsável por buscar todos os logs 
+def select_logs(host_name: str):
+    sql = '''
+            SELECT * FROM system_monitor WHERE host_name = ?;
+        '''
+    
+    conn = connection()
+    cursor = conn.cursor()
+
+    cursor.row_factory = sqlite3.Row
+
+    cursor.execute(sql, (host_name,))
+
+    res = cursor.fetchall()

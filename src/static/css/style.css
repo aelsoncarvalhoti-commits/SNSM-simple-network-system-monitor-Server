@@ -13,7 +13,7 @@ a{
 
 a:hover{
     color: rgb(126, 126, 20);
-    scale: 1.5px
+    transform: scale(1.1);
 }
 
 #btn_pesquisar{
